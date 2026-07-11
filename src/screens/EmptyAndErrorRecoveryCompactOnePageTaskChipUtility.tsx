@@ -126,9 +126,9 @@ export function EmptyAndErrorRecoveryCompactOnePageTaskChipUtility({ actions }: 
       [QA_DIAGNOSTICS]
       Error: QuotaExceededError
       Code: DOM_EXCEPTION_22
-      Stack: at Storage.setItem (<anonymous>)
+      Stack: at Storage.setItem (&lt;anonymous&gt;)
       Context: App.Module.StorageSync
-                          </anonymous></div>
+                          &lt;/anonymous&gt;</div>
       <div className="flex flex-row gap-sm mt-md pt-md border-t border-error/20">
       <button className="flex-1 py-sm px-md bg-primary text-on-primary border border-primary rounded-lg font-label-md text-label-md hover:bg-on-background transition-colors flex justify-center items-center gap-xs" type="button" data-action-id="retry-connection-6" onClick={actions?.["retry-connection-6"]}>
       <RefreshCw className="text-[16px]" aria-hidden={true} focusable="false" />
