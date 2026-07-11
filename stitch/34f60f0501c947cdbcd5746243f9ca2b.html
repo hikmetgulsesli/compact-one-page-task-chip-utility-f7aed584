@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Short Operations - Compact One Page Task Chip Utility</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#eff4ff",
+                    "inverse-primary": "#bec6e0",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-primary-container": "#7c839b",
+                    "surface-container": "#e5eeff",
+                    "inverse-surface": "#213145",
+                    "background": "#f8f9ff",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#002113",
+                    "on-background": "#0b1c30",
+                    "on-secondary-fixed": "#001a42",
+                    "on-primary-fixed": "#131b2e",
+                    "on-tertiary-fixed": "#002113",
+                    "on-surface": "#0b1c30",
+                    "outline-variant": "#c6c6cd",
+                    "primary-container": "#131b2e",
+                    "surface-variant": "#d3e4fe",
+                    "primary": "#000000",
+                    "secondary-container": "#2170e4",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#6ffbbe",
+                    "surface-container-high": "#dce9ff",
+                    "tertiary": "#000000",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "surface": "#f8f9ff",
+                    "primary-fixed": "#dae2fd",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-tint": "#565e74",
+                    "primary-fixed-dim": "#bec6e0",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-secondary-container": "#fefcff",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary-container": "#009668",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "secondary": "#0058be",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#76777d",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed-variant": "#005236"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "lg": "16px",
+                    "xl": "24px",
+                    "xs": "4px",
+                    "margin": "16px",
+                    "md": "12px",
+                    "sm": "8px",
+                    "base": "4px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-sm-mobile": ["Inter"],
+                    "label-xs": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "headline-sm-mobile": ["16px", {"lineHeight": "22px", "fontWeight": "600"}],
+                    "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+           font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-sm overflow-hidden h-screen w-screen selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center h-14 px-md w-full transition-colors duration-200">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary">TaskChip</span>
+</div>
+<div class="flex-1 max-w-md mx-xl flex items-center relative">
+<span class="material-symbols-outlined absolute left-sm text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-DEFAULT focus:border-secondary focus:ring-1 focus:ring-secondary text-body-sm font-body-sm text-on-surface pl-8 py-1 placeholder:text-on-surface-variant" placeholder="Search operations..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container rounded-DEFAULT transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container rounded-DEFAULT transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant ml-sm cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a person looking forward against a clean, light-mode background. Minimalist styling, bright even lighting, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-NLsFAx-AU3YoHf7gcXnNuQG_S-0c4bRhtvr5OfdNSNFJj-HkGhNVa1_C9Jg2-PU4kjGemA3hDxLNxQMA3Z5hXqae3VbONyfnChqiG5zmJVf9VL8GrDwp-5YjzcPzhaBs9RqLf3YgmUJoanyt-f_SNUHPotUeeuz8U9VIzzghWJ5j58SCMuB_POBDMgajIiUbtrc5Cqz24stdJIVbl6oJX-ShkwAgrNFFdhENMxtw2OYx5YyYFSvI-SDXrxG-bGy_UAHy6kW3C6M"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-14 h-[calc(100vh-14px)] w-[240px] bg-surface-container-low border-r border-outline-variant flex flex-col py-md px-sm transition-all duration-150 z-40 hidden md:flex">
+<div class="flex items-center gap-sm mb-lg px-xs">
+<div class="w-8 h-8 rounded-DEFAULT bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">dashboard</span>
+</div>
+<div>
+<h2 class="font-headline-sm-mobile text-headline-sm-mobile font-black text-on-surface">Task Manager</h2>
+<p class="font-label-xs text-label-xs text-on-surface-variant">Workflow v1.0</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-sm px-md rounded-DEFAULT flex items-center justify-center gap-xs mb-lg hover:bg-on-background transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span> New Task
+        </button>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-sm px-sm py-sm rounded-r-DEFAULT bg-secondary-container/10 text-secondary font-bold border-l-[3px] border-secondary transition-all duration-150" href="#">
+<span class="material-symbols-outlined icon-fill">assignment</span>
+<span class="font-body-md text-body-md">Active</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-r-DEFAULT text-on-surface-variant hover:bg-surface-container-highest transition-all duration-150 border-l-[3px] border-transparent" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<span class="font-body-md text-body-md">Done</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-r-DEFAULT text-on-surface-variant hover:bg-surface-container-highest transition-all duration-150 border-l-[3px] border-transparent" href="#">
+<span class="material-symbols-outlined">archive</span>
+<span class="font-body-md text-body-md">Archive</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-[240px] pt-14 h-screen flex flex-col relative bg-surface-bright">
+<!-- Action Bar & Metrics -->
+<header class="flex-none p-lg border-b border-outline-variant bg-surface-container-lowest">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Active Operations</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Managing currently running task clusters.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-sm py-xs border border-outline-variant rounded-DEFAULT text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">refresh</span> Retry
+                    </button>
+<button class="flex items-center gap-xs px-sm py-xs border border-outline-variant rounded-DEFAULT text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md bg-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Filter
+                    </button>
+</div>
+</div>
+<!-- Bento Metrics -->
+<div class="grid grid-cols-4 gap-md">
+<div class="border border-outline-variant p-sm rounded-DEFAULT bg-surface-container-lowest flex flex-col justify-center">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">Total Tasks</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-xs">1,204</span>
+</div>
+<div class="border border-outline-variant p-sm rounded-DEFAULT bg-surface-container-lowest flex flex-col justify-center">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">Pending</span>
+<div class="flex items-center gap-xs mt-xs">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface">342</span>
+</div>
+</div>
+<div class="border border-outline-variant p-sm rounded-DEFAULT bg-surface-container-lowest flex flex-col justify-center">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">Completed</span>
+<div class="flex items-center gap-xs mt-xs">
+<div class="w-2 h-2 rounded-full bg-on-tertiary-container"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface">850</span>
+</div>
+</div>
+<div class="border border-outline-variant p-sm rounded-DEFAULT bg-surface-container-lowest flex flex-col justify-center">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">Failure Rate</span>
+<div class="flex items-center gap-xs mt-xs">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-headline-sm text-headline-sm text-on-surface">1.2%</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Split View: List and Preview -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Task List (Left Pane) -->
+<div class="flex-1 overflow-y-auto border-r border-outline-variant bg-surface p-md space-y-xs">
+<!-- Task Chip 1 (Selected) -->
+<div class="group relative flex items-center border border-outline-variant rounded-DEFAULT bg-surface-container-lowest cursor-pointer hover:shadow-sm transition-shadow">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-secondary rounded-l-DEFAULT"></div>
+<div class="flex-1 p-sm flex items-center justify-between ml-xs">
+<div class="flex items-center gap-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Data Migration - Node A</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">OP-8921 • Initiated 10:42 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="px-xs py-[2px] bg-surface-container-highest text-secondary font-label-xs text-label-xs rounded-DEFAULT">ACTIVE</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-on-surface transition-opacity p-xs">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Chip 2 -->
+<div class="group relative flex items-center border border-outline-variant rounded-DEFAULT bg-surface-container-lowest cursor-pointer hover:shadow-sm transition-shadow">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-outline-variant rounded-l-DEFAULT"></div>
+<div class="flex-1 p-sm flex items-center justify-between ml-xs">
+<div class="flex items-center gap-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Cache Invalidation Cluster</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">OP-8920 • Initiated 09:15 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="px-xs py-[2px] bg-surface-container-highest text-on-surface-variant font-label-xs text-label-xs rounded-DEFAULT">QUEUED</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-on-surface transition-opacity p-xs">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Task Chip 3 -->
+<div class="group relative flex items-center border border-outline-variant rounded-DEFAULT bg-surface-container-lowest cursor-pointer hover:shadow-sm transition-shadow">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-on-tertiary-container rounded-l-DEFAULT"></div>
+<div class="flex-1 p-sm flex items-center justify-between ml-xs">
+<div class="flex items-center gap-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">User Analytics Sync</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">OP-8919 • Completed 08:30 AM</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="px-xs py-[2px] bg-inverse-on-surface text-on-tertiary-container font-label-xs text-label-xs rounded-DEFAULT">DONE</span>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-on-surface transition-opacity p-xs">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview Pane (Right Pane) -->
+<aside class="w-[320px] bg-surface-container-lowest overflow-y-auto flex flex-col hidden lg:flex">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<span class="font-label-md text-label-md text-on-surface">Operation Details</span>
+<button class="text-on-surface-variant hover:text-on-surface p-xs rounded-DEFAULT hover:bg-outline-variant/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="p-md space-y-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Data Migration - Node A</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">ID: OP-8921</p>
+</div>
+<div class="flex items-center gap-sm">
+<span class="px-sm py-xs bg-surface-container-highest text-secondary font-label-xs text-label-xs rounded-DEFAULT">ACTIVE</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> Running for 2h 15m</span>
+</div>
+<div class="border border-outline-variant rounded-DEFAULT overflow-hidden">
+<div class="bg-surface-container-low px-sm py-xs border-b border-outline-variant font-label-xs text-label-xs text-on-surface-variant uppercase">Properties</div>
+<div class="p-sm space-y-xs bg-surface-container-lowest">
+<div class="flex justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Priority</span>
+<span class="font-label-md text-label-md text-on-surface">High</span>
+</div>
+<div class="flex justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Assigned</span>
+<span class="font-label-md text-label-md text-on-surface">System Auto</span>
+</div>
+<div class="flex justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target</span>
+<span class="font-label-md text-label-md text-on-surface font-mono">us-east-cluster-1</span>
+</div>
+</div>
+</div>
+<div class="border border-outline-variant rounded-DEFAULT p-sm bg-surface-container-lowest">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-xs block">Live Log Output</span>
+<div class="font-mono text-[10px] text-on-surface-variant space-y-1 h-32 overflow-y-auto bg-surface p-xs rounded-DEFAULT border border-outline-variant">
+<p>[10:42:01] Initialization started...</p>
+<p>[10:42:05] Connecting to source db...</p>
+<p class="text-secondary">[10:42:10] Connection established. Reading records.</p>
+<p>[10:45:00] Chunk 1/50 processed.</p>
+<p>[10:50:22] Chunk 2/50 processed.</p>
+<p class="animate-pulse">_</p>
+</div>
+</div>
+</div>
+<div class="mt-auto p-md border-t border-outline-variant bg-surface-container-lowest flex gap-sm">
+<button class="flex-1 bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md py-sm rounded-DEFAULT hover:bg-outline-variant/20 transition-colors">Pause</button>
+<button class="flex-1 bg-error text-on-error font-label-md text-label-md py-sm rounded-DEFAULT hover:bg-on-error-container transition-colors">Terminate</button>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 left-0 md:left-[240px] h-10 bg-surface-container-lowest border-t border-outline-variant flex items-center justify-between px-lg z-30 transition-colors">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant">TaskChip Utility © 2024</span>
+<div class="flex gap-md">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer hover:underline" href="#">Clear Cache</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer hover:underline" href="#">Export JSON</a>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "9837b334c3d34c10969ea12ff2e0748b",
+    "name": "Settings and Preferences - Compact One Page Task Chip Utility",
+    "type": "settings",
+    "description": "Settings and Preferences - Compact One Page Task Chip Utility screen",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  },
+  {
+    "screenId": "34f60f0501c947cdbcd5746243f9ca2b",
+    "name": "Short Operations - Compact One Page Task Chip Utility",
+    "type": "app-screen",
+    "description": "Short Operations - Compact One Page Task Chip Utility screen",
+    "surfaceIds": [
+      "SURF_SHORT_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "51f829f56e2541e789ce3b821cf39f25",
+    "name": "Short Editor - Compact One Page Task Chip Utility",
+    "type": "form",
+    "description": "Short Editor - Compact One Page Task Chip Utility screen",
+    "surfaceIds": [
+      "SURF_SHORT_EDITOR"
+    ]
+  },
+  {
+    "screenId": "f0071ae25108483bb0950d7628709eef",
+    "name": "Empty and Error Recovery - Compact One Page Task Chip Utility",
+    "type": "error",
+    "description": "Empty and Error Recovery - Compact One Page Task Chip Utility screen",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  }
+]

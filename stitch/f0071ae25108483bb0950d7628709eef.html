@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Empty and Error Recovery - Task Chip Utility</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#eff4ff",
+                        "inverse-primary": "#bec6e0",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#004395",
+                        "on-primary-container": "#7c839b",
+                        "surface-container": "#e5eeff",
+                        "inverse-surface": "#213145",
+                        "background": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#002113",
+                        "on-background": "#0b1c30",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary-fixed": "#002113",
+                        "on-surface": "#0b1c30",
+                        "outline-variant": "#c6c6cd",
+                        "primary-container": "#131b2e",
+                        "surface-variant": "#d3e4fe",
+                        "primary": "#000000",
+                        "secondary-container": "#2170e4",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary": "#000000",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "surface": "#f8f9ff",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-tint": "#565e74",
+                        "primary-fixed-dim": "#bec6e0",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#fefcff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-container": "#009668",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "secondary": "#0058be",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#76777d",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "16px",
+                        "xl": "24px",
+                        "xs": "4px",
+                        "margin": "16px",
+                        "md": "12px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm-mobile": ["Inter"],
+                        "label-xs": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "headline-sm-mobile": ["16px", {"lineHeight": "22px", "fontWeight": "600"}],
+                        "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-inverse-surface fixed top-0 w-full z-50 border-b border-outline-variant dark:border-outline flex justify-between items-center h-14 px-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary" data-icon="task_alt">task_alt</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-inverse-primary">TaskChip</span>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<!-- Active is mapped to none since this is an error state, but let's assume we arrived from 'Active' context for nav structural completeness if needed, or suppress. The JSON specifies a TopNavBar with search on left, trailing icon actions. Let's fulfill JSON structure without enforcing an active tab if it's not a tab bar. The TopNavBar JSON didn't define tabs, SideNavBar did. -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-xl pr-sm py-xs bg-surface-container-low border border-outline-variant rounded-full text-body-sm focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none w-64 transition-all" placeholder="Search chips..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="w-8 h-8 rounded-full ml-sm border border-outline-variant overflow-hidden cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A small circular avatar showing a generic, minimalist, modern user profile placeholder icon in light gray on a white background, suitable for a professional corporate application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD63UXvk0AgkHJRgcUeDDXokZThjypeu07bhkg6WIGDr_45jCV45AUARHPCsMvSo3c5oztvOynlmojLdUO1dseL5fWpqHWs0BdoxCOxLX-QNSU23RnUESlmaA3OZlB9rZdnl5wgDRU-Fx9h13u0_TmWd3lBitXucTvyqBpRJzqgg5cBWlxVEraNIR2Yi8bLosMWRMF0Sr8gegijBOnrYq_CKUvPGOVqHYS5zo8VNN8nbfvXELuvlJ3l0MJ28ANB8gHAwGoFn1lhaOs"/>
+</div>
+</div>
+</nav>
+<!-- Main Layout -->
+<div class="flex pt-14 h-screen w-full">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col py-md px-sm bg-surface-container-low dark:bg-surface-container-lowest fixed left-0 top-14 h-[calc(100vh-14px)] w-[240px] border-r border-outline-variant dark:border-outline">
+<div class="mb-lg px-sm">
+<!-- Header info from JSON -->
+<div class="text-label-xs font-label-xs text-on-surface-variant uppercase tracking-widest mb-xs">Workflow v1.0</div>
+<div class="text-headline-sm font-headline-sm font-black text-primary">Task Manager</div>
+</div>
+<button class="mb-xl mx-sm py-sm px-md bg-primary text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-xs hover:bg-on-background transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                New Task
+            </button>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md py-sm px-md rounded-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-body-md text-body-md">Active</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md">Done</span>
+</a>
+<a class="flex items-center gap-md py-sm px-md rounded-md text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-highest transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="archive">archive</span>
+<span class="font-body-md text-body-md">Archive</span>
+</a>
+</nav>
+</aside>
+<!-- Canvas Area -->
+<main class="flex-1 md:ml-[240px] p-lg md:p-xl overflow-y-auto bg-surface flex flex-col gap-xl">
+<header class="mb-md">
+<h1 class="font-headline-sm text-headline-sm text-primary">System Status &amp; Recovery</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Diagnostics and recovery paths for empty states and application errors.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- State 1: Empty -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center text-center shadow-sm relative overflow-hidden h-[320px]">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-md border border-outline-variant border-dashed">
+<span class="material-symbols-outlined text-outline text-[32px]" data-icon="data_array">data_array</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-xs">No Task Chips found</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xl max-w-[200px]">Your workspace is currently empty. Begin by creating a new data encapsulated chip.</p>
+<button class="py-sm px-md bg-surface-container text-on-background border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+                        Create your first chip
+                    </button>
+<!-- decorative bg element -->
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-surface-container-low rounded-full opacity-50 blur-2xl pointer-events-none"></div>
+</div>
+<!-- State 2: Filtered Empty -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center text-center shadow-sm relative overflow-hidden h-[320px]">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-md relative">
+<span class="material-symbols-outlined text-outline text-[28px]" data-icon="filter_alt">filter_alt</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 bg-surface-container border border-outline-variant rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-surface-variant" data-icon="close">close</span>
+</div>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-xs">No results for your search</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xl max-w-[220px]">We couldn't find any Task Chips matching your current filter criteria or search query.</p>
+<button class="py-sm px-md bg-transparent text-secondary border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="filter_alt_off">filter_alt_off</span>
+                        Clear filters
+                    </button>
+</div>
+<!-- State 3: Error Recovery (Spans 2 cols on lg, 1 on xl) -->
+<div class="bg-error-container/20 border border-error/30 rounded-xl p-xl flex flex-col shadow-sm relative overflow-hidden lg:col-span-2 xl:col-span-1 h-[320px]">
+<div class="flex items-start gap-md mb-md">
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center flex-shrink-0 border border-error/20">
+<span class="material-symbols-outlined text-on-error-container" data-icon="warning">warning</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-error-container">Connection failed or localStorage corrupt</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">The system encountered an error while attempting to retrieve your Task Chips.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-sm mb-auto font-mono text-[10px] text-on-surface-variant overflow-x-auto whitespace-pre">
+[QA_DIAGNOSTICS]
+Error: QuotaExceededError
+Code: DOM_EXCEPTION_22
+Stack: at Storage.setItem (<anonymous>)
+Context: App.Module.StorageSync
+                    </anonymous></div>
+<div class="flex flex-row gap-sm mt-md pt-md border-t border-error/20">
+<button class="flex-1 py-sm px-md bg-primary text-on-primary border border-primary rounded-lg font-label-md text-label-md hover:bg-on-background transition-colors flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="refresh">refresh</span>
+                            Retry Connection
+                        </button>
+<button class="py-sm px-md bg-surface-container-lowest text-on-background border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors flex justify-center items-center">
+                            Create New
+                        </button>
+</div>
+</div>
+</div>
+<!-- Additional contextual UI to make it feel like a real page -->
+<section class="mt-lg border border-outline-variant rounded-xl bg-surface-container-lowest p-md">
+<div class="flex items-center justify-between mb-sm border-b border-outline-variant pb-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">System Health Logs</h3>
+<span class="font-label-xs text-label-xs text-outline">Last check: Just now</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm py-xs">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+<span class="font-body-sm text-body-sm text-on-surface">API Gateway connected</span>
+</div>
+<div class="flex items-center gap-sm py-xs">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Local cache synchronization failed</span>
+</div>
+<div class="flex items-center gap-sm py-xs">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Authentication token valid</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 left-0 md:left-[240px] h-10 bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline flex items-center justify-between px-lg z-40">
+<div class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant">TaskChip Utility © 2024</div>
+<div class="flex items-center gap-md">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline cursor-pointer transition-colors" href="#">Clear Cache</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline cursor-pointer transition-colors" href="#">Export JSON</a>
+</div>
+</footer>
+</body></html>

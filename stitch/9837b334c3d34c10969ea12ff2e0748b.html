@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings and Preferences - Task Chip Utility</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#eff4ff",
+                      "inverse-primary": "#bec6e0",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#004395",
+                      "on-primary-container": "#7c839b",
+                      "surface-container": "#e5eeff",
+                      "inverse-surface": "#213145",
+                      "background": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#002113",
+                      "on-background": "#0b1c30",
+                      "on-secondary-fixed": "#001a42",
+                      "on-primary-fixed": "#131b2e",
+                      "on-tertiary-fixed": "#002113",
+                      "on-surface": "#0b1c30",
+                      "outline-variant": "#c6c6cd",
+                      "primary-container": "#131b2e",
+                      "surface-variant": "#d3e4fe",
+                      "primary": "#000000",
+                      "secondary-container": "#2170e4",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed": "#6ffbbe",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary": "#000000",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "surface": "#f8f9ff",
+                      "primary-fixed": "#dae2fd",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "surface-tint": "#565e74",
+                      "primary-fixed-dim": "#bec6e0",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-secondary-container": "#fefcff",
+                      "on-secondary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#45464d",
+                      "on-tertiary-container": "#009668",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#cbdbf5",
+                      "secondary": "#0058be",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#76777d",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "on-tertiary-fixed-variant": "#005236"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "16px",
+                      "xl": "24px",
+                      "xs": "4px",
+                      "margin": "16px",
+                      "md": "12px",
+                      "sm": "8px",
+                      "base": "4px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-sm-mobile": ["Inter"],
+                      "label-xs": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "headline-sm-mobile": ["16px", {"lineHeight": "22px", "fontWeight": "600"}],
+                      "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom toggle switch styling */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0f172a;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0f172a;
+        }
+        .toggle-checkbox {
+            right: 0;
+            z-index: 1;
+            border-color: #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .toggle-label {
+            background-color: #e2e8f0;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+        }
+        
+        /* Toast animation */
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(20px) translateX(-50%); }
+            10% { opacity: 1; transform: translateY(0) translateX(-50%); }
+            90% { opacity: 1; transform: translateY(0) translateX(-50%); }
+            100% { opacity: 0; transform: translateY(-20px) translateX(-50%); }
+        }
+        .toast-show {
+            animation: slideUpFade 3s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- JSON: SideNavBar (Strict implementation based on Intent Filter: Settings is a dead-end/transactional intent relative to core app flow, so global nav is suppressed to prioritize content canvas. *HOWEVER*, the prompt implies a top-level settings page within a utility context, but standard rule applies. Wait, the prompt says "Generate the settings screen...". Let's suppress SideNav and TopAppBar as it's a focus screen, OR render it if it's considered a main view. Given the prompt specifically asks for SURF_SETTINGS_AND_PREFERENCES, it's a destination, but typical "Settings" suppresses nav. Let's include TopAppBar for "Back" navigation and a localized layout). Wait, the rule says "Suppress navigation if the page intent is: Linear/Transactional...". Settings isn't explicitly listed there, but usually it implies a departure. Let's build a focused layout without the global nav shell to strictly follow the "Canvas Priority" mandate, providing a back button in a localized header. Actually, looking at the JSON, TopAppBar has settings/help. I will include TopAppBar and Footer, but suppress SideNav. -->
+<!-- Top Navigation Bar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline fixed top-0 w-full z-50 flex justify-between items-center h-14 px-md">
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container rounded-DEFAULT transition-colors duration-200" title="Back">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary">TaskChip Settings</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant hover:bg-surface-container rounded-DEFAULT transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden ml-sm">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close-up, corporate headshot portrait of a professional individual in a minimalist, well-lit studio environment. Clean, sharp lighting, light mode aesthetic, crisp colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoB1D-RmP3-bhBesQAUbpuRuuJME-vwVfmS2N0MVIkIWOZ3HIU82zglsAihupeRolU7WmRHGSoP28LaPHH4gBZR0Lpen9k0E0qG9PDDKRMvn3OsnLbh1pk1L2friksXsPfdHkAz3MIXDKndi0twCCmNvVmSEAP71ELp7r4ZBY2DOVg26Tk7tMoeMqhcF9YzFAdMRLKSYnAOF1EvP0psUbZKFG1KnlLpRPV5GicWbnayLK_JBWv4VjeoBnovhF-rihOTNvZdB3cRVw"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="w-full pt-[70px] pb-24 px-md md:px-xl max-w-4xl mx-auto flex flex-col gap-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md border-b border-outline-variant pb-md">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Preferences</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Manage application behavior and customize your workflow.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm border border-outline text-on-surface font-label-md text-label-md rounded-DEFAULT hover:bg-surface-container transition-colors flex items-center gap-xs" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="refresh">refresh</span>
+                    Reload
+                </button>
+<button class="px-md py-sm bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT hover:bg-primary-container transition-colors flex items-center gap-xs shadow-sm" onclick="showToast()" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="save">save</span>
+                    Save Preferences
+                </button>
+</div>
+</div>
+<!-- Settings Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Application Behavior Panel -->
+<section class="col-span-1 md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col gap-md">
+<h3 class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest border-b border-surface-variant pb-xs">Application Behavior</h3>
+<!-- Default View -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-sm p-sm hover:bg-surface-container-low transition-colors rounded-DEFAULT">
+<div>
+<label class="font-body-md text-body-md text-primary font-semibold block" for="default-view">Default Landing View</label>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Select which tab opens upon startup.</span>
+</div>
+<select class="bg-surface-container-lowest border border-outline-variant text-on-surface text-body-sm rounded-DEFAULT focus:ring-secondary focus:border-secondary block w-full sm:w-48 p-sm" id="default-view">
+<option value="active">Active Tasks</option>
+<option value="done">Done Tasks</option>
+<option value="archive">Archive</option>
+</select>
+</div>
+<!-- Display Density -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-sm p-sm hover:bg-surface-container-low transition-colors rounded-DEFAULT">
+<div>
+<h4 class="font-body-md text-body-md text-primary font-semibold">Display Density</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Toggle compact mode to maximize visible items.</span>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="density-toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer" for="density-toggle"></label>
+</div>
+</div>
+</section>
+<!-- Saved Filters Panel -->
+<section class="col-span-1 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-lg flex flex-col h-full">
+<div class="p-md border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-widest">Saved Filters</h3>
+<button class="text-secondary hover:bg-secondary-container/10 p-xs rounded-DEFAULT transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+<ul class="flex-1 overflow-y-auto p-xs flex flex-col gap-xs">
+<li class="flex items-center justify-between p-sm border border-transparent hover:border-outline-variant hover:bg-surface-container-low rounded-DEFAULT group cursor-pointer transition-all">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="filter_list">filter_list</span>
+<span class="font-body-sm text-body-sm text-on-surface">High Priority Active</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all p-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</li>
+<li class="flex items-center justify-between p-sm border border-transparent hover:border-outline-variant hover:bg-surface-container-low rounded-DEFAULT group cursor-pointer transition-all">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="filter_list">filter_list</span>
+<span class="font-body-sm text-body-sm text-on-surface">Due This Week</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all p-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</li>
+<li class="flex items-center justify-between p-sm border border-transparent hover:border-outline-variant hover:bg-surface-container-low rounded-DEFAULT group cursor-pointer transition-all">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="filter_list">filter_list</span>
+<span class="font-body-sm text-body-sm text-on-surface">Blocked Tasks</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-on-surface-variant hover:text-error transition-all p-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</li>
+</ul>
+</section>
+<!-- Danger Zone -->
+<section class="col-span-1 md:col-span-12 bg-[#fff5f5] border border-[#fecaca] rounded-lg p-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-error">Danger Zone</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Reset all settings and filters to their factory defaults. This action cannot be undone.</p>
+</div>
+<button class="px-md py-sm border border-error text-error font-label-md text-label-md rounded-DEFAULT hover:bg-error hover:text-on-error transition-colors whitespace-nowrap" type="button">
+                    Reset to Defaults
+                </button>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline fixed bottom-0 left-0 h-10 flex items-center justify-between px-lg w-full z-40">
+<span class="font-label-xs text-label-xs uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant">TaskChip Utility © 2024</span>
+<div class="flex gap-md">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline cursor-pointer transition-colors" href="#">Clear Cache</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline cursor-pointer transition-colors" href="#">Export JSON</a>
+</div>
+</footer>
+<!-- Toast Notification -->
+<div class="fixed bottom-[60px] left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-lg shadow-lg flex items-center gap-sm opacity-0 pointer-events-none z-50" id="toast">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed-dim" data-icon="check_circle">check_circle</span>
+<span class="font-body-sm text-body-sm">Preferences saved successfully.</span>
+</div>
+<script>
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('toast-show');
+            // Trigger reflow to restart animation
+            void toast.offsetWidth;
+            toast.classList.add('toast-show');
+        }
+    </script>
+</body></html>

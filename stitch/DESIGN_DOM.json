@@ -1,0 +1,2307 @@
+{
+  "generatedAt": "2026-07-11T19:29:05.683Z",
+  "screenCount": 4,
+  "screens": {
+    "34f60f0501c947cdbcd5746243f9ca2b": {
+      "screenId": "34f60f0501c947cdbcd5746243f9ca2b",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "flex-row",
+          "classes": [
+            "fixed",
+            "top-0",
+            "w-full",
+            "z-50",
+            "bg-surface-container-lowest",
+            "border-b",
+            "border-outline-variant",
+            "flex",
+            "justify-between",
+            "items-center"
+          ],
+          "childCount": 4
+        },
+        {
+          "tag": "aside",
+          "layout": "flex-col",
+          "classes": [
+            "fixed",
+            "left-0",
+            "top-14",
+            "h-[calc(100vh-14px)]",
+            "w-[240px]",
+            "bg-surface-container-low",
+            "border-r",
+            "border-outline-variant",
+            "flex",
+            "flex-col"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "md:ml-[240px]",
+            "pt-14",
+            "h-screen",
+            "flex",
+            "flex-col",
+            "relative",
+            "bg-surface-bright"
+          ],
+          "childCount": 47
+        },
+        {
+          "tag": "footer",
+          "layout": "flex-row",
+          "classes": [
+            "fixed",
+            "bottom-0",
+            "right-0",
+            "left-0",
+            "md:left-[240px]",
+            "h-10",
+            "bg-surface-container-lowest",
+            "border-t",
+            "border-outline-variant",
+            "flex"
+          ],
+          "childCount": 1
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "p-xs",
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "rounded-DEFAULT",
+            "transition-colors"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "classes": [
+            "p-xs",
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "rounded-DEFAULT",
+            "transition-colors"
+          ],
+          "icon": "help",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/help",
+          "expectedRoute": "/help",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "text-label-md",
+            "py-sm",
+            "px-md",
+            "rounded-DEFAULT",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-xs",
+            "mb-lg",
+            "hover:bg-on-background",
+            "transition-colors",
+            "shadow-sm"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Retry",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-xs",
+            "px-sm",
+            "py-xs",
+            "border",
+            "border-outline-variant",
+            "rounded-DEFAULT",
+            "text-on-surface",
+            "hover:bg-surface-container",
+            "transition-colors",
+            "font-label-md",
+            "text-label-md",
+            "bg-surface-container-lowest"
+          ],
+          "icon": "refresh",
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Filter",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-xs",
+            "px-sm",
+            "py-xs",
+            "border",
+            "border-outline-variant",
+            "rounded-DEFAULT",
+            "text-on-surface",
+            "hover:bg-surface-container",
+            "transition-colors",
+            "font-label-md",
+            "text-label-md",
+            "bg-surface-container-lowest"
+          ],
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "edit",
+          "classes": [
+            "opacity-0",
+            "group-hover:opacity-100",
+            "text-on-surface-variant",
+            "hover:text-on-surface",
+            "transition-opacity",
+            "p-xs"
+          ],
+          "icon": "edit",
+          "action": "edit",
+          "expectedBehavior": "open edit flow or update selected item/state"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:text-on-surface",
+            "p-xs",
+            "rounded-DEFAULT",
+            "hover:bg-outline-variant/20",
+            "transition-colors"
+          ],
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Pause",
+          "classes": [
+            "flex-1",
+            "bg-surface-container",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "font-label-md",
+            "text-label-md",
+            "py-sm",
+            "rounded-DEFAULT",
+            "hover:bg-outline-variant/20",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Terminate",
+          "classes": [
+            "flex-1",
+            "bg-error",
+            "text-on-error",
+            "font-label-md",
+            "text-label-md",
+            "py-sm",
+            "rounded-DEFAULT",
+            "hover:bg-on-error-container",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TaskChip",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "classes": [],
+          "icon": "search",
+          "action": "navigate",
+          "expectedRoute": "/search",
+          "routeInferred": true,
+          "expectedBehavior": "navigate:/search"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search operations...",
+          "placeholder": "Search operations...",
+          "name": "",
+          "classes": [
+            "w-full",
+            "bg-surface-container-low",
+            "border-outline-variant",
+            "rounded-DEFAULT",
+            "focus:border-secondary",
+            "focus:ring-1",
+            "focus:ring-secondary",
+            "text-body-sm",
+            "font-body-sm",
+            "text-on-surface",
+            "pl-8",
+            "py-1",
+            "placeholder:text-on-surface-variant"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Active",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "assignment",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "check_circle",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "archive",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "href": "#",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "text-on-surface-variant",
+            "hover:text-primary",
+            "transition-colors",
+            "cursor-pointer",
+            "hover:underline"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "href": "#",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "text-on-surface-variant",
+            "hover:text-primary",
+            "transition-colors",
+            "cursor-pointer",
+            "hover:underline"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "search",
+        "settings",
+        "help",
+        "dashboard",
+        "add",
+        "assignment",
+        "check_circle",
+        "archive",
+        "refresh",
+        "filter_list",
+        "edit",
+        "close",
+        "schedule"
+      ],
+      "images": [
+        {
+          "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuB-NLsFAx-AU3YoHf7gcXnNuQG_S-0c4bRhtvr5OfdNSNFJj-HkGhNVa1_C9Jg2-PU4kjGemA3hDxLNxQMA3Z5hXqae3VbONyfnChqiG5zmJVf9VL8GrDwp-5YjzcPzhaBs9RqLf3YgmUJoanyt-f",
+          "alt": "User profile"
+        }
+      ],
+      "cssVars": {},
+      "colorPalette": {
+        "surface-container-low": "#eff4ff",
+        "inverse-primary": "#bec6e0",
+        "error": "#ba1a1a",
+        "on-secondary-fixed-variant": "#004395",
+        "on-primary-container": "#7c839b",
+        "surface-container": "#e5eeff",
+        "inverse-surface": "#213145",
+        "background": "#f8f9ff",
+        "on-primary": "#ffffff",
+        "tertiary-container": "#002113",
+        "on-background": "#0b1c30",
+        "on-secondary-fixed": "#001a42",
+        "on-primary-fixed": "#131b2e",
+        "on-tertiary-fixed": "#002113",
+        "on-surface": "#0b1c30",
+        "outline-variant": "#c6c6cd",
+        "primary-container": "#131b2e",
+        "surface-variant": "#d3e4fe",
+        "primary": "#000000",
+        "secondary-container": "#2170e4",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#6ffbbe",
+        "surface-container-high": "#dce9ff",
+        "tertiary": "#000000",
+        "secondary-fixed-dim": "#adc6ff",
+        "surface": "#f8f9ff",
+        "primary-fixed": "#dae2fd",
+        "on-primary-fixed-variant": "#3f465c",
+        "surface-tint": "#565e74",
+        "primary-fixed-dim": "#bec6e0",
+        "secondary-fixed": "#d8e2ff",
+        "on-secondary-container": "#fefcff",
+        "on-secondary": "#ffffff",
+        "on-error-container": "#93000a",
+        "on-surface-variant": "#45464d",
+        "on-tertiary-container": "#009668",
+        "inverse-on-surface": "#eaf1ff",
+        "on-error": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "secondary": "#0058be",
+        "surface-container-highest": "#d3e4fe",
+        "surface-bright": "#f8f9ff",
+        "surface-container-lowest": "#ffffff",
+        "outline": "#76777d",
+        "error-container": "#ffdad6",
+        "tertiary-fixed-dim": "#4edea3",
+        "on-tertiary-fixed-variant": "#005236"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 4,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Active",
+          "icon": "assignment",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "icon": "check_circle",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "icon": "archive",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "icon": "help",
+          "action": "navigate",
+          "route": "/help",
+          "expectedBehavior": "navigate:/help"
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Retry",
+          "icon": "refresh",
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Filter",
+          "icon": "filter_list",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "edit",
+          "icon": "edit",
+          "action": "edit",
+          "expectedBehavior": "open edit flow or update selected item/state"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Pause",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Terminate",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "TaskChip",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "icon": "search",
+          "action": "navigate",
+          "route": "/search",
+          "expectedBehavior": "navigate:/search"
+        },
+        {
+          "kind": "input",
+          "label": "Search operations...",
+          "type": "text",
+          "placeholder": "Search operations...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "TaskChip",
+          "icon": null,
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "icon": "search",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "icon": "help",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Active",
+          "icon": "assignment",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "icon": "check_circle",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "icon": "archive",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Short Operations - Compact One Page Task Chip Utility"
+    },
+    "51f829f56e2541e789ce3b821cf39f25": {
+      "screenId": "51f829f56e2541e789ce3b821cf39f25",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "absolute",
+          "classes": [
+            "bg-surface-container-lowest",
+            "dark:bg-inverse-surface",
+            "text-primary",
+            "dark:text-inverse-primary",
+            "font-headline-sm",
+            "text-headline-sm",
+            "fixed",
+            "top-0",
+            "w-full",
+            "z-50"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "aside",
+          "layout": "absolute",
+          "classes": [
+            "bg-surface-container-low",
+            "dark:bg-surface-container-lowest",
+            "text-secondary",
+            "dark:text-secondary-fixed",
+            "font-body-md",
+            "text-body-md",
+            "fixed",
+            "left-0",
+            "top-14",
+            "h-[calc(100vh-14px)]"
+          ],
+          "childCount": 6
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "md:ml-[240px]",
+            "p-lg",
+            "relative",
+            "h-[calc(100vh-56px)]",
+            "overflow-hidden",
+            "bg-background"
+          ],
+          "childCount": 28
+        },
+        {
+          "tag": "footer",
+          "layout": "absolute",
+          "classes": [
+            "bg-surface-container-lowest",
+            "dark:bg-inverse-surface",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "font-label-md",
+            "text-label-md",
+            "fixed",
+            "bottom-0",
+            "right-0",
+            "left-0"
+          ],
+          "childCount": 1
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "dark:hover:bg-on-surface-variant/10",
+            "rounded-DEFAULT",
+            "p-xs",
+            "transition-colors"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "dark:hover:bg-on-surface-variant/10",
+            "rounded-DEFAULT",
+            "p-xs",
+            "transition-colors"
+          ],
+          "icon": "help",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/help",
+          "expectedRoute": "/help",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "py-sm",
+            "rounded-DEFAULT",
+            "hover:bg-surface-tint",
+            "transition-colors",
+            "mt-sm",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-xs"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "p-xs",
+            "rounded-DEFAULT",
+            "transition-colors"
+          ],
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "classes": [
+            "px-md",
+            "py-sm",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "hover:bg-surface-container-highest",
+            "font-label-md",
+            "text-label-md",
+            "rounded-DEFAULT",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Chip",
+          "classes": [
+            "px-md",
+            "py-sm",
+            "bg-primary",
+            "text-on-primary",
+            "hover:bg-surface-tint",
+            "font-label-md",
+            "text-label-md",
+            "rounded-DEFAULT",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "gap-xs",
+            "shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
+          ],
+          "icon": "save",
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "TaskChip",
+          "classes": [],
+          "icon": "task_alt",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "classes": [],
+          "icon": "search",
+          "action": "navigate",
+          "expectedRoute": "/search",
+          "routeInferred": true,
+          "expectedBehavior": "navigate:/search"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search tasks...",
+          "placeholder": "Search tasks...",
+          "name": "",
+          "classes": [
+            "bg-transparent",
+            "border-none",
+            "outline-none",
+            "text-body-sm",
+            "w-full",
+            "placeholder-on-surface-variant",
+            "p-0",
+            "focus:ring-0"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "e.g., Q3 Marketing Review",
+          "placeholder": "e.g., Q3 Marketing Review",
+          "name": "chip-name",
+          "classes": [
+            "w-full",
+            "bg-surface-container-lowest",
+            "border-error",
+            "focus:border-error",
+            "focus:ring-2",
+            "focus:ring-error/20",
+            "rounded-DEFAULT",
+            "px-sm",
+            "py-sm",
+            "font-body-md",
+            "text-on-surface",
+            "transition-all"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "textarea",
+          "label": "Briefly describe the task objectives...",
+          "placeholder": "Briefly describe the task objectives...",
+          "name": "chip-description",
+          "classes": [
+            "w-full",
+            "bg-surface-container-lowest",
+            "border",
+            "border-outline-variant",
+            "focus:border-secondary",
+            "focus:ring-2",
+            "focus:ring-secondary/20",
+            "rounded-DEFAULT",
+            "px-sm",
+            "py-sm",
+            "font-body-md",
+            "text-on-surface",
+            "transition-all",
+            "resize-none"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "radio",
+          "label": "chip-status",
+          "placeholder": "",
+          "name": "chip-status",
+          "classes": [
+            "sr-only"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Active",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "assignment",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "check_circle",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "archive",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "href": "#",
+          "classes": [
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed",
+            "underline",
+            "cursor-pointer",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "href": "#",
+          "classes": [
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed",
+            "underline",
+            "cursor-pointer",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "task_alt",
+        "search",
+        "settings",
+        "help",
+        "add",
+        "assignment",
+        "check_circle",
+        "archive",
+        "close",
+        "info",
+        "error",
+        "schedule",
+        "save"
+      ],
+      "images": [
+        {
+          "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuBzEOQhOKOTEErFFQSnpjkyWfak0hLvrxaKNPDFUT_FkCy2mUS_d-mRJX3l-DAtp75ja5uD_xs3hkyIW48j2wEr4Lu5FHA-snz8KkRMGK3Dorut1DamE72wOVct0AuRCywfaCL9xGCWBfCO2vBXVu",
+          "alt": "User profile"
+        }
+      ],
+      "cssVars": {},
+      "colorPalette": {
+        "surface-container-low": "#eff4ff",
+        "inverse-primary": "#bec6e0",
+        "error": "#ba1a1a",
+        "on-secondary-fixed-variant": "#004395",
+        "on-primary-container": "#7c839b",
+        "surface-container": "#e5eeff",
+        "inverse-surface": "#213145",
+        "background": "#f8f9ff",
+        "on-primary": "#ffffff",
+        "tertiary-container": "#002113",
+        "on-background": "#0b1c30",
+        "on-secondary-fixed": "#001a42",
+        "on-primary-fixed": "#131b2e",
+        "on-tertiary-fixed": "#002113",
+        "on-surface": "#0b1c30",
+        "outline-variant": "#c6c6cd",
+        "primary-container": "#131b2e",
+        "surface-variant": "#d3e4fe",
+        "primary": "#000000",
+        "secondary-container": "#2170e4",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#6ffbbe",
+        "surface-container-high": "#dce9ff",
+        "tertiary": "#000000",
+        "secondary-fixed-dim": "#adc6ff",
+        "surface": "#f8f9ff",
+        "primary-fixed": "#dae2fd",
+        "on-primary-fixed-variant": "#3f465c",
+        "surface-tint": "#565e74",
+        "primary-fixed-dim": "#bec6e0",
+        "secondary-fixed": "#d8e2ff",
+        "on-secondary-container": "#fefcff",
+        "on-secondary": "#ffffff",
+        "on-error-container": "#93000a",
+        "on-surface-variant": "#45464d",
+        "on-tertiary-container": "#009668",
+        "inverse-on-surface": "#eaf1ff",
+        "on-error": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "secondary": "#0058be",
+        "surface-container-highest": "#d3e4fe",
+        "surface-bright": "#f8f9ff",
+        "surface-container-lowest": "#ffffff",
+        "outline": "#76777d",
+        "error-container": "#ffdad6",
+        "tertiary-fixed-dim": "#4edea3",
+        "on-tertiary-fixed-variant": "#005236"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Active",
+          "icon": "assignment",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "icon": "check_circle",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "icon": "archive",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "icon": "help",
+          "action": "navigate",
+          "route": "/help",
+          "expectedBehavior": "navigate:/help"
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Chip",
+          "icon": "save",
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "TaskChip",
+          "icon": "task_alt",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "icon": "search",
+          "action": "navigate",
+          "route": "/search",
+          "expectedBehavior": "navigate:/search"
+        },
+        {
+          "kind": "input",
+          "label": "Search tasks...",
+          "type": "text",
+          "placeholder": "Search tasks...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "e.g., Q3 Marketing Review",
+          "type": "text",
+          "placeholder": "e.g., Q3 Marketing Review",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "Briefly describe the task objectives...",
+          "type": "textarea",
+          "placeholder": "Briefly describe the task objectives...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "chip-status",
+          "type": "radio",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "TaskChip",
+          "icon": "task_alt",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "icon": "search",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "icon": "help",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Active",
+          "icon": "assignment",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "icon": "check_circle",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "icon": "archive",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Short Editor - Compact One Page Task Chip Utility"
+    },
+    "9837b334c3d34c10969ea12ff2e0748b": {
+      "screenId": "9837b334c3d34c10969ea12ff2e0748b",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface-container-lowest",
+            "dark:bg-inverse-surface",
+            "border-b",
+            "border-outline-variant",
+            "dark:border-outline",
+            "fixed",
+            "top-0",
+            "w-full",
+            "z-50",
+            "flex"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "w-full",
+            "pt-[70px]",
+            "pb-24",
+            "px-md",
+            "md:px-xl",
+            "max-w-4xl",
+            "mx-auto",
+            "flex",
+            "flex-col",
+            "gap-lg"
+          ],
+          "childCount": 20
+        },
+        {
+          "tag": "footer",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface-container-lowest",
+            "dark:bg-inverse-surface",
+            "border-t",
+            "border-outline-variant",
+            "dark:border-outline",
+            "fixed",
+            "bottom-0",
+            "left-0",
+            "h-10",
+            "flex"
+          ],
+          "childCount": 1
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Back",
+          "classes": [
+            "p-sm",
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "rounded-DEFAULT",
+            "transition-colors",
+            "duration-200"
+          ],
+          "icon": "arrow_back",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "classes": [
+            "p-sm",
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "rounded-DEFAULT",
+            "transition-colors",
+            "duration-200"
+          ],
+          "icon": "help",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/help",
+          "expectedRoute": "/help",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "Reload",
+          "classes": [
+            "px-md",
+            "py-sm",
+            "border",
+            "border-outline",
+            "text-on-surface",
+            "font-label-md",
+            "text-label-md",
+            "rounded-DEFAULT",
+            "hover:bg-surface-container",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "gap-xs"
+          ],
+          "icon": "refresh",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Preferences",
+          "classes": [
+            "px-md",
+            "py-sm",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "text-label-md",
+            "rounded-DEFAULT",
+            "hover:bg-primary-container",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "gap-xs",
+            "shadow-sm"
+          ],
+          "icon": "save",
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "add",
+          "classes": [
+            "text-secondary",
+            "hover:bg-secondary-container/10",
+            "p-xs",
+            "rounded-DEFAULT",
+            "transition-colors"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "delete",
+          "classes": [
+            "opacity-0",
+            "group-hover:opacity-100",
+            "text-on-surface-variant",
+            "hover:text-error",
+            "transition-all",
+            "p-xs"
+          ],
+          "icon": "delete",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "Reset to Defaults",
+          "classes": [
+            "px-md",
+            "py-sm",
+            "border",
+            "border-error",
+            "text-error",
+            "font-label-md",
+            "text-label-md",
+            "rounded-DEFAULT",
+            "hover:bg-error",
+            "hover:text-on-error",
+            "transition-colors",
+            "whitespace-nowrap"
+          ],
+          "icon": null,
+          "action": "reset",
+          "expectedBehavior": "reset visible value/state, with confirmation if destructive"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "select",
+          "label": "default-view",
+          "placeholder": "",
+          "name": "default-view",
+          "classes": [
+            "bg-surface-container-lowest",
+            "border",
+            "border-outline-variant",
+            "text-on-surface",
+            "text-body-sm",
+            "rounded-DEFAULT",
+            "focus:ring-secondary",
+            "focus:border-secondary",
+            "block",
+            "w-full",
+            "sm:w-48",
+            "p-sm"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "checkbox",
+          "label": "toggle",
+          "placeholder": "",
+          "name": "toggle",
+          "classes": [
+            "toggle-checkbox",
+            "absolute",
+            "block",
+            "w-6",
+            "h-6",
+            "rounded-full",
+            "bg-white",
+            "border-4",
+            "appearance-none",
+            "cursor-pointer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "href": "#",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed",
+            "underline",
+            "cursor-pointer",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "href": "#",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed",
+            "underline",
+            "cursor-pointer",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "arrow_back",
+        "help",
+        "refresh",
+        "save",
+        "add",
+        "filter_list",
+        "delete",
+        "check_circle"
+      ],
+      "images": [
+        {
+          "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuCoB1D-RmP3-bhBesQAUbpuRuuJME-vwVfmS2N0MVIkIWOZ3HIU82zglsAihupeRolU7WmRHGSoP28LaPHH4gBZR0Lpen9k0E0qG9PDDKRMvn3OsnLbh1pk1L2friksXsPfdHkAz3MIXDKndi0twC",
+          "alt": "User profile"
+        }
+      ],
+      "cssVars": {},
+      "colorPalette": {
+        "surface-container-low": "#eff4ff",
+        "inverse-primary": "#bec6e0",
+        "error": "#ba1a1a",
+        "on-secondary-fixed-variant": "#004395",
+        "on-primary-container": "#7c839b",
+        "surface-container": "#e5eeff",
+        "inverse-surface": "#213145",
+        "background": "#f8f9ff",
+        "on-primary": "#ffffff",
+        "tertiary-container": "#002113",
+        "on-background": "#0b1c30",
+        "on-secondary-fixed": "#001a42",
+        "on-primary-fixed": "#131b2e",
+        "on-tertiary-fixed": "#002113",
+        "on-surface": "#0b1c30",
+        "outline-variant": "#c6c6cd",
+        "primary-container": "#131b2e",
+        "surface-variant": "#d3e4fe",
+        "primary": "#000000",
+        "secondary-container": "#2170e4",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#6ffbbe",
+        "surface-container-high": "#dce9ff",
+        "tertiary": "#000000",
+        "secondary-fixed-dim": "#adc6ff",
+        "surface": "#f8f9ff",
+        "primary-fixed": "#dae2fd",
+        "on-primary-fixed-variant": "#3f465c",
+        "surface-tint": "#565e74",
+        "primary-fixed-dim": "#bec6e0",
+        "secondary-fixed": "#d8e2ff",
+        "on-secondary-container": "#fefcff",
+        "on-secondary": "#ffffff",
+        "on-error-container": "#93000a",
+        "on-surface-variant": "#45464d",
+        "on-tertiary-container": "#009668",
+        "inverse-on-surface": "#eaf1ff",
+        "on-error": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "secondary": "#0058be",
+        "surface-container-highest": "#d3e4fe",
+        "surface-bright": "#f8f9ff",
+        "surface-container-lowest": "#ffffff",
+        "outline": "#76777d",
+        "error-container": "#ffdad6",
+        "tertiary-fixed-dim": "#4edea3",
+        "on-tertiary-fixed-variant": "#005236"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "Back",
+          "icon": "arrow_back",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "icon": "help",
+          "action": "navigate",
+          "route": "/help",
+          "expectedBehavior": "navigate:/help"
+        },
+        {
+          "kind": "button",
+          "label": "Reload",
+          "icon": "refresh",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Preferences",
+          "icon": "save",
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "add",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "delete",
+          "icon": "delete",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "Reset to Defaults",
+          "icon": null,
+          "action": "reset",
+          "expectedBehavior": "reset visible value/state, with confirmation if destructive"
+        },
+        {
+          "kind": "input",
+          "label": "default-view",
+          "type": "select",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "toggle",
+          "type": "checkbox",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Settings and Preferences - Compact One Page Task Chip Utility"
+    },
+    "f0071ae25108483bb0950d7628709eef": {
+      "screenId": "f0071ae25108483bb0950d7628709eef",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface-container-lowest",
+            "dark:bg-inverse-surface",
+            "fixed",
+            "top-0",
+            "w-full",
+            "z-50",
+            "border-b",
+            "border-outline-variant",
+            "dark:border-outline",
+            "flex"
+          ],
+          "childCount": 6
+        },
+        {
+          "tag": "aside",
+          "layout": "flex-col",
+          "classes": [
+            "hidden",
+            "md:flex",
+            "flex-col",
+            "py-md",
+            "px-sm",
+            "bg-surface-container-low",
+            "dark:bg-surface-container-lowest",
+            "fixed",
+            "left-0",
+            "top-14"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "flex-1",
+            "md:ml-[240px]",
+            "p-lg",
+            "md:p-xl",
+            "overflow-y-auto",
+            "bg-surface",
+            "flex",
+            "flex-col",
+            "gap-xl"
+          ],
+          "childCount": 22
+        },
+        {
+          "tag": "footer",
+          "layout": "absolute",
+          "classes": [
+            "fixed",
+            "bottom-0",
+            "right-0",
+            "left-0",
+            "md:left-[240px]",
+            "h-10",
+            "bg-surface-container-lowest",
+            "dark:bg-inverse-surface",
+            "border-t",
+            "border-outline-variant"
+          ],
+          "childCount": 2
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "p-xs",
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "rounded-full",
+            "transition-colors",
+            "duration-200"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "classes": [
+            "p-xs",
+            "text-on-surface-variant",
+            "hover:bg-surface-container",
+            "rounded-full",
+            "transition-colors",
+            "duration-200"
+          ],
+          "icon": "help",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/help",
+          "expectedRoute": "/help",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "classes": [
+            "mb-xl",
+            "mx-sm",
+            "py-sm",
+            "px-md",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-md",
+            "text-label-md",
+            "rounded-lg",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-xs",
+            "hover:bg-on-background",
+            "transition-colors"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Create your first chip",
+          "classes": [
+            "py-sm",
+            "px-md",
+            "bg-surface-container",
+            "text-on-background",
+            "border",
+            "border-outline-variant",
+            "rounded-lg",
+            "font-label-md",
+            "text-label-md",
+            "hover:bg-surface-variant",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "gap-xs"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Clear filters",
+          "classes": [
+            "py-sm",
+            "px-md",
+            "bg-transparent",
+            "text-secondary",
+            "border",
+            "border-outline-variant",
+            "rounded-lg",
+            "font-label-md",
+            "text-label-md",
+            "hover:bg-surface-container",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "gap-xs"
+          ],
+          "icon": "filter_alt_off",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "Retry Connection",
+          "classes": [
+            "flex-1",
+            "py-sm",
+            "px-md",
+            "bg-primary",
+            "text-on-primary",
+            "border",
+            "border-primary",
+            "rounded-lg",
+            "font-label-md",
+            "text-label-md",
+            "hover:bg-on-background",
+            "transition-colors",
+            "flex",
+            "justify-center",
+            "items-center",
+            "gap-xs"
+          ],
+          "icon": "refresh",
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Create New",
+          "classes": [
+            "py-sm",
+            "px-md",
+            "bg-surface-container-lowest",
+            "text-on-background",
+            "border",
+            "border-outline-variant",
+            "rounded-lg",
+            "font-label-md",
+            "text-label-md",
+            "hover:bg-surface-variant",
+            "transition-colors",
+            "flex",
+            "justify-center",
+            "items-center"
+          ],
+          "icon": null,
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "task_alt",
+          "classes": [],
+          "icon": "task_alt",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "classes": [],
+          "icon": "search",
+          "action": "navigate",
+          "expectedRoute": "/search",
+          "routeInferred": true,
+          "expectedBehavior": "navigate:/search"
+        },
+        {
+          "kind": "button",
+          "label": "TaskChip Utility © 2024",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search chips...",
+          "placeholder": "Search chips...",
+          "name": "",
+          "classes": [
+            "pl-xl",
+            "pr-sm",
+            "py-xs",
+            "bg-surface-container-low",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "text-body-sm",
+            "focus:border-secondary",
+            "focus:ring-2",
+            "focus:ring-secondary/20",
+            "outline-none",
+            "w-64",
+            "transition-all"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Active",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "assignment",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "check_circle",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "archive",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "href": "#",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed",
+            "underline",
+            "cursor-pointer",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "href": "#",
+          "classes": [
+            "font-label-md",
+            "text-label-md",
+            "text-on-surface-variant",
+            "dark:text-on-surface-variant",
+            "hover:text-primary",
+            "dark:hover:text-primary-fixed",
+            "underline",
+            "cursor-pointer",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "task_alt",
+        "search",
+        "settings",
+        "help",
+        "add",
+        "assignment",
+        "check_circle",
+        "archive",
+        "data_array",
+        "filter_alt",
+        "close",
+        "filter_alt_off",
+        "warning",
+        "refresh"
+      ],
+      "images": [
+        {
+          "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuD63UXvk0AgkHJRgcUeDDXokZThjypeu07bhkg6WIGDr_45jCV45AUARHPCsMvSo3c5oztvOynlmojLdUO1dseL5fWpqHWs0BdoxCOxLX-QNSU23RnUESlmaA3OZlB9rZdnl5wgDRU-Fx9h13u0_T",
+          "alt": "User profile"
+        }
+      ],
+      "cssVars": {},
+      "colorPalette": {
+        "surface-container-low": "#eff4ff",
+        "inverse-primary": "#bec6e0",
+        "error": "#ba1a1a",
+        "on-secondary-fixed-variant": "#004395",
+        "on-primary-container": "#7c839b",
+        "surface-container": "#e5eeff",
+        "inverse-surface": "#213145",
+        "background": "#f8f9ff",
+        "on-primary": "#ffffff",
+        "tertiary-container": "#002113",
+        "on-background": "#0b1c30",
+        "on-secondary-fixed": "#001a42",
+        "on-primary-fixed": "#131b2e",
+        "on-tertiary-fixed": "#002113",
+        "on-surface": "#0b1c30",
+        "outline-variant": "#c6c6cd",
+        "primary-container": "#131b2e",
+        "surface-variant": "#d3e4fe",
+        "primary": "#000000",
+        "secondary-container": "#2170e4",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#6ffbbe",
+        "surface-container-high": "#dce9ff",
+        "tertiary": "#000000",
+        "secondary-fixed-dim": "#adc6ff",
+        "surface": "#f8f9ff",
+        "primary-fixed": "#dae2fd",
+        "on-primary-fixed-variant": "#3f465c",
+        "surface-tint": "#565e74",
+        "primary-fixed-dim": "#bec6e0",
+        "secondary-fixed": "#d8e2ff",
+        "on-secondary-container": "#fefcff",
+        "on-secondary": "#ffffff",
+        "on-error-container": "#93000a",
+        "on-surface-variant": "#45464d",
+        "on-tertiary-container": "#009668",
+        "inverse-on-surface": "#eaf1ff",
+        "on-error": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "secondary": "#0058be",
+        "surface-container-highest": "#d3e4fe",
+        "surface-bright": "#f8f9ff",
+        "surface-container-lowest": "#ffffff",
+        "outline": "#76777d",
+        "error-container": "#ffdad6",
+        "tertiary-fixed-dim": "#4edea3",
+        "on-tertiary-fixed-variant": "#005236"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Active",
+          "icon": "assignment",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "icon": "check_circle",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "icon": "archive",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "icon": "help",
+          "action": "navigate",
+          "route": "/help",
+          "expectedBehavior": "navigate:/help"
+        },
+        {
+          "kind": "button",
+          "label": "New Task",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Create your first chip",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Clear filters",
+          "icon": "filter_alt_off",
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "Retry Connection",
+          "icon": "refresh",
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Create New",
+          "icon": null,
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "task_alt",
+          "icon": "task_alt",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "icon": "search",
+          "action": "navigate",
+          "route": "/search",
+          "expectedBehavior": "navigate:/search"
+        },
+        {
+          "kind": "button",
+          "label": "TaskChip Utility © 2024",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search chips...",
+          "type": "text",
+          "placeholder": "Search chips...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "task_alt",
+          "icon": "task_alt",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "icon": "search",
+          "active": true
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "help",
+          "icon": "help",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Active",
+          "icon": "assignment",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Done",
+          "icon": "check_circle",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "archive",
+          "icon": "archive",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "button",
+          "label": "TaskChip Utility © 2024",
+          "icon": null,
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Clear Cache",
+          "icon": null,
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Export JSON",
+          "icon": null,
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Empty and Error Recovery - Compact One Page Task Chip Utility"
+    }
+  }
+}
