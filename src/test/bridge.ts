@@ -83,7 +83,7 @@ export function installAppShell(shell: AppShell): () => void {
   return () => {
     if (window.app === shell) {
       if (previous === undefined) {
-        delete window.app;
+        window.app = undefined;
       } else {
         window.app = previous;
       }
@@ -97,7 +97,7 @@ export function installAppShell(shell: AppShell): () => void {
  */
 export function uninstallAppShell(): void {
   if (typeof window === 'undefined') return;
-  delete window.app;
+  window.app = undefined;
 }
 
 /**

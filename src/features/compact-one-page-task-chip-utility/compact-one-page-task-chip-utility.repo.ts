@@ -51,14 +51,21 @@ export function makeDefaultPersistedState(): AppPersistedState {
   };
 }
 
+let isStorageAvailableCache: boolean | null = null;
 function isStorageAvailable(): boolean {
+  if (isStorageAvailableCache !== null) return isStorageAvailableCache;
   try {
-    if (typeof window === 'undefined' || !window.localStorage) return false;
+    if (typeof window === 'undefined' || !window.localStorage) {
+      isStorageAvailableCache = false;
+      return false;
+    }
     const probe = '__compact_probe__';
     window.localStorage.setItem(probe, '1');
     window.localStorage.removeItem(probe);
+    isStorageAvailableCache = true;
     return true;
   } catch {
+    isStorageAvailableCache = false;
     return false;
   }
 }

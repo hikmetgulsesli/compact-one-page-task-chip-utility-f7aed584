@@ -54,14 +54,20 @@ type Listener = () => void;
 
 class AppStoreCore {
   private snapshot: StoreSnapshot;
+  private runtimeState: AppRuntimeState;
   private listeners: Set<Listener> = new Set();
 
   constructor(initial: StoreSnapshot) {
     this.snapshot = initial;
+    this.runtimeState = buildRuntimeState(initial);
   }
 
   getSnapshot(): StoreSnapshot {
     return this.snapshot;
+  }
+
+  getRuntimeState(): AppRuntimeState {
+    return this.runtimeState;
   }
 
   subscribe(listener: Listener): () => void {
@@ -73,6 +79,7 @@ class AppStoreCore {
 
   private commit(next: StoreSnapshot, options?: { persist?: boolean }): void {
     this.snapshot = next;
+    this.runtimeState = buildRuntimeState(next);
     if (options?.persist !== false) {
       this.persist();
     }
@@ -90,6 +97,7 @@ class AppStoreCore {
         storageStatus: 'unavailable',
         lastError: this.snapshot.lastError ?? 'failed to persist state to storage',
       };
+      this.runtimeState = buildRuntimeState(this.snapshot);
     }
   }
 
@@ -252,7 +260,7 @@ export function AppStoreProvider({ children }: AppStoreProviderProps): JSX.Eleme
     return () => {
       if (window.app === shell) {
         if (previous === undefined) {
-          delete window.app;
+          window.app = undefined;
         } else {
           window.app = previous;
         }
@@ -280,8 +288,8 @@ export function useAppState<T>(selector: (state: AppRuntimeState) => T): T {
   const core = useStoreCore();
   return useSyncExternalStore(
     (callback) => core.subscribe(callback),
-    () => selector(buildRuntimeState(core.getSnapshot())),
-    () => selector(buildRuntimeState(core.getSnapshot())),
+    () => selector(core.getRuntimeState()),
+    () => selector(core.getRuntimeState()),
   );
 }
 
